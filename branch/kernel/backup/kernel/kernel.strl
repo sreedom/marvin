@@ -1,0 +1,25 @@
+module kernel:
+	type Event;
+	input ev(Event);
+	
+	% return the function name, corresponding to the event 
+	function do_lookup (Event) :  string;
+
+	output fun := "None" :string ;
+	var X:Event, f:string in
+	loop
+		% Somehow the whole program goes haywire if this pause is not here
+		pause;
+		present ev then
+			X:=?ev;
+			f:=do_lookup(X);
+			emit fun(f);
+		else
+			emit fun("NOTHING");
+		end present;
+	end loop
+	end var
+end module
+
+
+    
