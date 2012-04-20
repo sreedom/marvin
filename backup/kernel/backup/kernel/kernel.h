@@ -77,7 +77,7 @@ typedef struct {
 } lookupEntry;
 
 typedef struct {
-	lookupEntry l;
+	lookupentry l;
 	Event ev;
 }r_event;
 
